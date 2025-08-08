@@ -1,2427 +1,3040 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diginest - Premium Digital Products Marketplace</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '773090005181087');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=773090005181087&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "773090005181087");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=773090005181087&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <style>
-        /* CSS Variables */
-        :root {
-            /* Color Scheme */
-            --primary: #F59E0B;
-            --primary-dark: #D97706;
-            --primary-light: #FCD34D;
-            --secondary: #1e293b;
-            --secondary-light: #334155;
-            --accent: #10B981;
-            --danger: #DC2626;
-            --light: #f8fafc;
-            --medium: #e2e8f0;
-            --dark: #0f172a;
-            --text: #1f2937;
-            --text-light: #6B7280;
-            --text-lighter: #94a3b8;
-            --new: #202A44;
-            
-            /* Gradients */
-            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            --gradient-secondary: linear-gradient(135deg, var(--secondary), var(--dark));
-            
-            /* Typography */
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-heading: 'Arial Rounded MT Bold', 'Arial', sans-serif;
-            
-            /* Spacing */
-            --section-padding: 4rem 5%;
-            --container-width: 1200px;
-            --border-radius: 20px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      /* CSS Variables */
+      :root {
+        /* Color Scheme */
+        --primary: #f59e0b;
+        --primary-dark: #d97706;
+        --primary-light: #fcd34d;
+        --secondary: #1e293b;
+        --secondary-light: #334155;
+        --accent: #10b981;
+        --danger: #dc2626;
+        --light: #f8fafc;
+        --medium: #e2e8f0;
+        --dark: #0f172a;
+        --text: #1f2937;
+        --text-light: #6b7280;
+        --text-lighter: #94a3b8;
+        --new: #202a44;
 
-        body {
-            font-family: var(--font-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            color: var(--text);
-            background-color: var(--light);
-        }
+        /* Gradients */
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        --gradient-secondary: linear-gradient(
+          135deg,
+          var(--secondary),
+          var(--dark)
+        );
 
-        /* Header Styles */
-       .top-banner {
-      background: var(--gradient-primary);
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-    }
+        /* Typography */
+        --font-main: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-heading: "Arial Rounded MT Bold", "Arial", sans-serif;
 
-    
-    /* Navbar */
-    nav.navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 5%;
-      background-color: white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      height: 70px;
-    }
-
-    .logo img {
-      height: 120px;
-      object-fit:contain;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .currency-selector {
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--medium);
-      background-color: var(--light);
-      color: var(--text);
-    }
-
-    .login-btn {
-      background: var(--gradient-primary);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-    }
-
-    .login-btn:hover {
-      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-    }
-
-
-    .hero {
-      background: var(--gradient-secondary);
-      text-align: center;
-      padding: 80px 5% 60px;
-      color: white;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      line-height: 1.3;
-      max-width: 800px;
-      margin: 0 auto 1rem;
-      font-family: var(--font-heading);
-    }
-
-    .hero h1 span {
-      color: var(--primary);
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-lighter);
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      padding: 0.9rem 1.8rem;
-      font-weight: 600;
-      border-radius: 12px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background: var(--gradient-primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-    }
-
-    .btn-secondary:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .hero-features {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-lighter);
-      font-size: 0.95rem;
-    }
-
-    .feature-item::before {
-      content: "✓";
-      color: var(--accent);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
+        /* Spacing */
+        --section-padding: 4rem 5%;
+        --container-width: 1200px;
+        --border-radius: 20px;
       }
-      .hero-buttons {
-        flex-direction: column;
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+        color: var(--text);
+        background-color: var(--light);
+      }
+
+      /* Header Styles */
+      .top-banner {
+        background: var(--gradient-primary);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      /* Navbar */
+      nav.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        height: 70px;
+      }
+
+      .logo img {
+        height: 120px;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
         gap: 1rem;
       }
-    }
 
-        /* Process Section */
-        .section {
-            padding: var(--section-padding);
+      .currency-selector {
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--medium);
+        background-color: var(--light);
+        color: var(--text);
+      }
+
+      .login-btn {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+      }
+
+      .login-btn:hover {
+        box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .hero {
+        background: var(--gradient-secondary);
+        text-align: center;
+        padding: 80px 5% 60px;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.3;
+        max-width: 800px;
+        margin: 0 auto 1rem;
+        font-family: var(--font-heading);
+      }
+
+      .hero h1 span {
+        color: var(--primary);
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-lighter);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        padding: 0.9rem 1.8rem;
+        font-weight: 600;
+        border-radius: 12px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: var(--gradient-primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.9;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .hero-features {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-lighter);
+        font-size: 0.95rem;
+      }
+
+      .feature-item::before {
+        content: "✓";
+        color: var(--accent);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
         }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
+        .hero-buttons {
+          flex-direction: column;
+          gap: 1rem;
         }
+      }
 
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
+      /* Process Section */
+      .section {
+        padding: var(--section-padding);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: var(--container-width);
+        margin: 0 auto;
+      }
+
+      .step-card {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--medium);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .step-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .step-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-primary);
+      }
+
+      .step-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      .step-number {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: var(--primary);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      .step-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+
+      .step-description {
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Products Section */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: var(--container-width);
+        margin: 0 auto;
+      }
+
+      .product-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* space between content and button */
+        background: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .product-main {
+        flex-grow: 1;
+      }
+      .product-action {
+        margin-top: auto;
+        /* already styled well, no change needed if the button is inside a flex container */
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-image {
+        width: 100%; /* Take full width of parent */
+        max-width: 500px; /* Optional: max limit */
+        height: auto; /* Adjusts with aspect ratio */
+        background: var(--gradient-primary);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; /* Center on the page */
+      }
+
+      .product-image img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 1.1rem; /* Bigger stars */
+        margin-bottom: 0.7rem;
+        margin-top: 0.3rem;
+        line-height: 1;
+      }
+
+      .product-rating i.fas {
+        color: #ffd700; /* Bright gold full stars */
+      }
+
+      .product-rating i.far {
+        color: #d3d3d3; /* Light gray empty stars */
+      }
+
+      .product-rating .rating-value {
+        margin-left: 0.4rem;
+        font-weight: bold;
+        color: var(--text); /* Matches your site's normal text color */
+        font-size: 0.95rem;
+      }
+
+      .rating-sale-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* push them apart */
+        width: 100%;
+      }
+
+      .rating-sale-row .product-rating {
+        margin: 0; /* remove unwanted space */
+        display: flex;
+        align-items: center;
+        gap: 4px; /* space between stars and rating number */
+      }
+
+      .flash-sale-inline {
+        background-color: var(--new);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 4px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+      }
+      .product-count {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .product-info {
+        padding: 1.5rem;
+      }
+
+      .product-category {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .category-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        background: var(--primary);
+      }
+
+      .product-name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+        margin-top: 18px;;
+      }
+
+      .product-description {
+        color: var(--text-light);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .product-features {
+        margin-bottom: 1.5rem;
+      }
+
+      .product-feature {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-light);
+      }
+
+      .product-feature i {
+        color: var(--accent);
+      }
+
+      .product-action {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .product-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+      }
+
+      /* Product Showcase */
+      .product-showcase {
+        background: var(--gradient-secondary);
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: var(--section-padding);
+      }
+
+      .showcase-content {
+        position: relative;
+        z-index: 1;
+        max-width: var(--container-width);
+        margin: 0 auto;
+      }
+
+      .showcase-badge {
+        color: var(--primary-light);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .showcase-title {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 900;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #ffffff, var(--primary));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .product-demo {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-demo::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(
+          45deg,
+          var(--primary),
+          var(--primary-dark),
+          var(--primary)
+        );
+        border-radius: calc(var(--border-radius) + 2px);
+        z-index: -1;
+        opacity: 0.7;
+      }
+
+      .price-highlight {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: white;
+        color: var(--text);
+        padding: 1rem;
+        border-radius: 50%;
+        font-weight: 900;
+        font-size: 1.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
         }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
+        40% {
+          transform: translateY(-10px);
         }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: var(--container-width);
-            margin: 0 auto;
+        60% {
+          transform: translateY(-5px);
         }
+      }
 
-        .step-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--medium);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+
+      .stat-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .stat-item i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-light);
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      /* Problem Section */
+      .problem-section {
+        background: linear-gradient(#ffffff, #ffffff);
+        padding: var(--section-padding);
+        text-align: center;
+      }
+
+      .problem-alert {
+        background: rgba(247, 15, 15, 0.117);
+        border: 1px solid rgba(239, 68, 68, 0.994);
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        color: var(--primary);
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 2rem;
+        animation: pulse 2s infinite;
+      }
+
+      .problem-title {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+        color: var(--text);
+      }
+
+      .problem-title .highlight {
+        color: var(--primary);
+        position: relative;
+      }
+
+      .problem-title .highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      .problem-subtitle {
+        font-size: 1.2rem;
+        color: var(--primary-dark);
+        margin-bottom: 3rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .problem-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: var(--container-width);
+        margin: 0 auto;
+      }
+
+      .stat-card {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(239, 68, 68, 0.15);
+      }
+
+      .stat-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-description {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      /* Brutal Reality Section */
+      .brutal-section {
+        background: linear-gradient(135deg, #fbf3f3 0%, #d6cdcd 100%);
+        padding: var(--section-padding);
+        text-align: center;
+      }
+
+      .brutal-badge {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        color: var(--primary);
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 2rem;
+      }
+
+      .brutal-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+        color: var(--text);
+      }
+
+      .brutal-title .highlight {
+        color: var(--primary);
+      }
+
+      .brutal-subtitle {
+        font-size: 1.1rem;
+        color: var(--primary-dark);
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .brutal-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: var(--container-width);
+        margin: 0 auto;
+      }
+
+      .brutal-stat {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem 1rem;
+        box-shadow: 0 10px 25px rgba(239, 68, 68, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .brutal-stat:hover {
+        transform: translateY(-5px);
+      }
+
+      .brutal-stat-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .brutal-stat-number {
+        font-size: 2.2rem;
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+        color: var(--primary);
+      }
+
+      .brutal-stat-label {
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+
+      .brutal-stat-desc {
+        color: var(--text-light);
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+
+      /* Solution Section */
+      .solution-section {
+        background: var(--gradient-primary);
+        padding: var(--section-padding);
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .solution-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+        animation: moveGrid 20s linear infinite;
+      }
+
+      @keyframes moveGrid {
+        0% {
+          transform: translate(0, 0);
         }
-
-        .step-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        100% {
+          transform: translate(100px, 100px);
         }
+      }
 
-        .step-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
-        }
+      .solution-content {
+        position: relative;
+        z-index: 1;
+      }
 
-        .step-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
-        }
+      .solution-badge {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(10px);
+      }
 
-        .step-number {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--primary);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
+      .solution-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 900;
+        margin-bottom: 2rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
 
-        .step-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
+      /* Comparison Section */
+      .comparison-section {
+        background: white;
+        padding: var(--section-padding);
+      }
 
-        .step-description {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+      .comparison-badge {
+        background: rgba(223, 53, 23, 0.1);
+        border: 1px solid rgba(185, 103, 16, 0.2);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        color: var(--primary);
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 2rem;
+      }
 
-        /* Products Section */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: var(--container-width);
-            margin: 0 auto;
-        }
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        max-width: var(--container-width);
+        margin: 0 auto;
+      }
 
-       .product-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* space between content and button */
-    background: white;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-}
-.product-main {
-    flex-grow: 1;
-}
-.product-action {
-    margin-top: auto;
-    /* already styled well, no change needed if the button is inside a flex container */
-}
+      .comparison-column {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        position: relative;
+      }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
+      .old-way {
+        border: 2px solid var(--primary);
+        background: linear-gradient(135deg, #fef7f2, #f59f0b44);
+      }
 
-        .product-image {
-    width: 100%;               /* Take full width of parent */
-    max-width: 500px;          /* Optional: max limit */
-    height: auto;              /* Adjusts with aspect ratio */
-    background: var(--gradient-primary);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;            /* Center on the page */
-}
+      .plr-way {
+        border: 2px solid var(--new);
+        background: linear-gradient(135deg, #f0fdf4, #dedcfc);
+      }
 
-.product-image img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-}
+      .comparison-header-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
 
+      .comparison-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+      }
 
-        .product-count {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            color: var(--text);
-        }
+      .old-way .comparison-icon {
+        background: var(--primary);
+      }
 
-        .product-info {
-            padding: 1.5rem;
-        }
+      .plr-way .comparison-icon {
+        background: var(--new);
+      }
 
-        .product-category {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
+      .comparison-column-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
 
-        .category-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            background: var(--primary);
-        }
+      .old-way .comparison-column-title {
+        color: var(--primary);
+      }
 
-        .product-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
+      .plr-way .comparison-column-title {
+        color: var(--new);
+      }
 
-        .product-description {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
+      .comparison-steps {
+        list-style: none;
+      }
 
-        .product-features {
-            margin-bottom: 1.5rem;
-        }
+      .comparison-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
 
-        .product-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
+      .old-way .comparison-step {
+        background: rgba(239, 165, 68, 0.05);
+      }
 
-        .product-feature i {
-            color: var(--accent);
-        }
+      .old-way .comparison-step:hover {
+        background: rgba(239, 68, 68, 0.1);
+      }
 
-        .product-action {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
+      .plr-way .comparison-step {
+        background: rgba(41, 16, 185, 0.05);
+      }
 
-        .product-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
-        }
+      .plr-way .comparison-step:hover {
+        background: rgba(55, 16, 185, 0.1);
+      }
 
-        /* Product Showcase */
-        .product-showcase {
-            background: var(--gradient-secondary);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding: var(--section-padding);
-        }
+      .step-number-comp {
+        background: var(--text-light);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+      }
 
-        .showcase-content {
-            position: relative;
-            z-index: 1;
-            max-width: var(--container-width);
-            margin: 0 auto;
-        }
+      .old-way .step-number-comp {
+        background: var(--primary);
+      }
 
-        .showcase-badge {
-            color: var(--primary-light);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+      .plr-way .step-number-comp {
+        background: var(--new);
+      }
 
-        .showcase-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, #ffffff, var(--primary));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      .step-content {
+        flex: 1;
+      }
 
-        .product-demo {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
+      .step-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
 
-        .product-demo::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--primary-dark), var(--primary));
-            border-radius: calc(var(--border-radius) + 2px);
-            z-index: -1;
-            opacity: 0.7;
-        }
+      .step-description {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
 
-        .price-highlight {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: white;
-            color: var(--text);
-            padding: 1rem;
-            border-radius: 50%;
-            font-weight: 900;
-            font-size: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            animation: bounce 2s infinite;
-        }
+      .step-time {
+        font-weight: 600;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+      }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+      .old-way .step-time {
+        color: var(--primary);
+      }
+
+      .plr-way .step-time {
+        color: var(--new);
+      }
+
+      /* Final CTA Section */
+      .final-cta {
+        background: var(--gradient-primary);
+        padding: var(--section-padding);
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final-cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>');
+        animation: float 15s infinite linear;
+      }
+
+      .final-cta-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .final-cta-badge {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .final-cta-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 900;
+        margin-bottom: 2rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto 3rem;
+      }
+
+      .stat-box {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 2rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .stat-box-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .stat-box-number {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-box-label {
+        font-weight: 600;
+        opacity: 0.9;
+      }
+
+      .highlight-box {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        margin: 2rem auto;
+        max-width: 600px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .highlight-title {
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* Testimonials Section */
+      .testimonials-section {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: var(--section-padding);
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        max-width: var(--container-width);
+        margin: 0 auto;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--medium);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .testimonial-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-primary);
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .testimonial-info {
+        flex: 1;
+      }
+
+      .testimonial-name {
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.2rem;
+      }
+
+      .testimonial-role {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .testimonial-rating {
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-content {
+        color: var(--text-medium);
+        line-height: 1.7;
+        font-style: italic;
+        position: relative;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        background: white;
+        padding: var(--section-padding);
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: var(--light);
+        border-radius: 15px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        border: 1px solid var(--medium);
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-question {
+        padding: 1.5rem;
+        background: white;
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .faq-question:hover {
+        background: var(--light);
+      }
+
+      .faq-question.active {
+        background: var(--gradient-primary);
+        color: white;
+      }
+
+      .faq-icon {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-question.active .faq-icon {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        padding: 0 1.5rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background: white;
+      }
+
+      .faq-answer.active {
+        padding: 1.5rem;
+        max-height: 200px;
+      }
+
+      .faq-answer-content {
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--gradient-secondary);
+        color: white;
+        padding: var(--section-padding);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 20%,
+            rgba(245, 158, 11, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(217, 119, 6, 0.05) 0%,
+            transparent 50%
+          );
+      }
+
+      .footer-content {
+        position: relative;
+        z-index: 1;
+        max-width: var(--container-width);
+        margin: 0 auto;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: white;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        color: var(--text-lighter);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .footer-company {
+        max-width: 300px;
+      }
+
+      .footer-company .logo {
+        color: white;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(245, 158, 11, 0.2);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(245, 158, 11, 0.3);
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        color: var(--text-lighter);
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-bottom-links a {
+        color: var(--text-lighter);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--primary);
+      }
+      .footer-logo {
+        max-width: 180px;
+        height: auto;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .footer-company p {
+        color: var(--text-lighter);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--secondary);
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background: white;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 2000;
+        transition: right 0.3s ease;
+        padding: 2rem;
+        overflow-y: auto;
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+
+      .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .close-menu {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .mobile-nav-links {
+        list-style: none;
+      }
+
+      .mobile-nav-links li {
+        margin-bottom: 1.5rem;
+      }
+
+      .mobile-nav-links a {
+        text-decoration: none;
+        color: var(--secondary);
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      /* Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .comparison-grid {
+          gap: 1.5rem;
         }
 
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 1rem 3%;
         }
 
-        .stat-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
+        .nav-links {
+          display: none;
         }
 
-        .stat-item i {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-light);
+        .mobile-menu-btn {
+          display: block;
         }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 0.25rem;
+        .hero {
+          padding: 3rem 3% 2rem;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
         }
 
-        /* Problem Section */
-        .problem-section {
-            background: linear-gradient(#ffffff,#ffffff);
-            padding: var(--section-padding);
-            text-align: center;
-        }
-
-        .problem-alert {
-            background: rgba(247, 15, 15, 0.117);
-            border: 1px solid rgba(239, 68, 68, 0.994);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            color: var(--primary);
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
-        }
-
-        .problem-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .problem-title .highlight {
-            color: var(--primary);
-            position: relative;
-        }
-
-        .problem-title .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .problem-subtitle {
-            font-size: 1.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .problem-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: var(--container-width);
-            margin: 0 auto;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.15);
-        }
-
-        .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-description {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* Brutal Reality Section */
-        .brutal-section {
-            background: linear-gradient(135deg, #fbf3f3 0%, #d6cdcd 100%);
-            padding: var(--section-padding);
-            text-align: center;
-        }
-
-        .brutal-badge {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            color: var(--primary);
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-
-        .brutal-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .brutal-title .highlight {
-            color: var(--primary);
-        }
-
-        .brutal-subtitle {
-            font-size: 1.1rem;
-            color: var(--primary-dark);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .brutal-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: var(--container-width);
-            margin: 0 auto;
-        }
-
-        .brutal-stat {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem 1rem;
-            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .brutal-stat:hover {
-            transform: translateY(-5px);
-        }
-
-        .brutal-stat-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .brutal-stat-number {
-            font-size: 2.2rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .brutal-stat-label {
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .brutal-stat-desc {
-            color: var(--text-light);
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        /* Solution Section */
-        .solution-section {
-            background: var(--gradient-primary);
-            padding: var(--section-padding);
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .solution-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            animation: moveGrid 20s linear infinite;
-        }
-
-        @keyframes moveGrid {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(100px, 100px); }
-        }
-
-        .solution-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .solution-badge {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .solution-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Comparison Section */
-        .comparison-section {
-            background: white;
-            padding: var(--section-padding);
-        }
-
-        .comparison-badge {
-            background: rgba(223, 53, 23, 0.1);
-            border: 1px solid rgba(185, 103, 16, 0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            color: var(--primary);
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
+        .hero-features {
+          flex-direction: column;
+          gap: 1rem;
         }
 
         .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: var(--container-width);
-            margin: 0 auto;
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
 
-        .comparison-column {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            position: relative;
-        }
-
-        .old-way {
-            border: 2px solid var(--primary);
-            background: linear-gradient(135deg, #fef7f2, #f59f0b44);
-        }
-
-        .plr-way {
-            border: 2px solid var(--new);
-            background: linear-gradient(135deg, #f0fdf4, #dedcfc);
-        }
-
-        .comparison-header-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .comparison-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .old-way .comparison-icon {
-            background: var(--primary);
-        }
-
-        .plr-way .comparison-icon {
-            background: var(--new);
-        }
-
-        .comparison-column-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .old-way .comparison-column-title {
-            color: var(--primary);
-        }
-
-        .plr-way .comparison-column-title {
-            color: var(--new);
-        }
-
-        .comparison-steps {
-            list-style: none;
-        }
-
-        .comparison-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .old-way .comparison-step {
-            background: rgba(239, 165, 68, 0.05);
-        }
-
-        .old-way .comparison-step:hover {
-            background: rgba(239, 68, 68, 0.1);
-        }
-
-        .plr-way .comparison-step {
-            background: rgba(41, 16, 185, 0.05);
-        }
-
-        .plr-way .comparison-step:hover {
-            background: rgba(55, 16, 185, 0.1);
-        }
-
-        .step-number-comp {
-            background: var(--text-light);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .old-way .step-number-comp {
-            background: var(--primary);
-        }
-
-        .plr-way .step-number-comp {
-            background: var(--new);
-        }
-
-        .step-content {
-            flex: 1;
-        }
-
-        .step-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .step-description {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .step-time {
-            font-weight: 600;
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
-        }
-
-        .old-way .step-time {
-            color: var(--primary);
-        }
-
-        .plr-way .step-time {
-            color: var(--new);
-        }
-
-        /* Final CTA Section */
-        .final-cta {
-            background: var(--gradient-primary);
-            padding: var(--section-padding);
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>');
-            animation: float 15s infinite linear;
-        }
-
-        .final-cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .final-cta-badge {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .final-cta-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        .brutal-stats {
+          grid-template-columns: repeat(2, 1fr);
         }
 
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto 3rem;
-        }
-
-        .stat-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .stat-box-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .stat-box-number {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-box-label {
-            font-weight: 600;
-            opacity: 0.9;
-        }
-
-        .highlight-box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 600px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
-
-        .highlight-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-        }
-
-        .highlight-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: var(--section-padding);
+          grid-template-columns: repeat(2, 1fr);
         }
 
         .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: var(--container-width);
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--medium);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .testimonial-info {
-            flex: 1;
-        }
-
-        .testimonial-name {
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.2rem;
-        }
-
-        .testimonial-role {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .testimonial-rating {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-content {
-            color: var(--text-medium);
-            line-height: 1.7;
-            font-style: italic;
-            position: relative;
-        }
-
-
-        /* FAQ Section */
-        .faq-section {
-            background: white;
-            padding: var(--section-padding);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--light);
-            border-radius: 15px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            border: 1px solid var(--medium);
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            background: white;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: var(--light);
-        }
-
-        .faq-question.active {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .faq-icon {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .faq-answer.active {
-            padding: 1.5rem;
-            max-height: 200px;
-        }
-
-        .faq-answer-content {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--gradient-secondary);
-            color: white;
-            padding: var(--section-padding);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(217, 119, 6, 0.05) 0%, transparent 50%);
-        }
-
-        .footer-content {
-            position: relative;
-            z-index: 1;
-            max-width: var(--container-width);
-            margin: 0 auto;
+          grid-template-columns: 1fr;
         }
 
         .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: var(--text-lighter);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-
-        .footer-company {
-            max-width: 300px;
-        }
-
-        .footer-company .logo {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(245, 158, 11, 0.2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--text-lighter);
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
 
         .footer-bottom-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+          flex-direction: column;
+          gap: 1rem;
         }
 
-        .footer-bottom-links a {
-            color: var(--text-lighter);
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .product-demo {
+          padding: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2rem;
         }
 
-        .footer-bottom-links a:hover {
-            color: var(--primary);
+        .hero-subtitle {
+          font-size: 1rem;
         }
-.footer-logo {
-    max-width: 180px;
-    height: auto;
-    margin-bottom: 1rem;
-    display: block;
-}
 
-.footer-company p {
-    color: var(--text-lighter);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
+        .btn {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
+          width: 100%;
+        }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--secondary);
+        .brutal-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .problem-stats {
+          grid-template-columns: 1fr;
         }
 
         .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100%;
-            background: white;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            z-index: 2000;
-            transition: right 0.3s ease;
-            padding: 2rem;
-            overflow-y: auto;
+          width: 100%;
+          right: -100%;
         }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .close-menu {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-        }
-
-        .mobile-nav-links li {
-            margin-bottom: 1.5rem;
-        }
-
-        .mobile-nav-links a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        /* Animation Classes */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .comparison-grid {
-                gap: 1.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem 3%;
-            }
-
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding: 3rem 3% 2rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .hero-features {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .comparison-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .brutal-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-bottom-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .product-demo {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-                width: 100%;
-            }
-
-            .brutal-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .problem-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .mobile-menu {
-                width: 100%;
-                right: -100%;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Top Banner -->
     <div class="top-banner">
-        ✨ Special Launch Offer: Get 50% off on all digital products | <strong>Limited Time Only</strong>
+      ✨ Special Launch Offer: Get 50% off on all digital products |
+      <strong>Limited Time Only</strong>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="WhatsApp_Image_2025-08-02_at_22.20.27_00f3871f-removebg-preview.png" alt="Diginest Logo"></div>
-        <ul class="nav-links">
-            <li><a href="#products">Products</a></li>
-            <li><a href="#showcase">Showcase</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#faq">FAQ</a></li>
-        </ul>
-        <div class="nav-right">
-            <a href="https://payhip.com/nestdigi/users/login"><button class="login-btn">Login</button></a>
-            
-        </div>
-        <button class="mobile-menu-btn">☰</button>
+      <div class="logo">
+        <img
+          src="WhatsApp_Image_2025-08-02_at_22.20.27_00f3871f-removebg-preview.png"
+          alt="Diginest Logo"
+        />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#showcase">Showcase</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://payhip.com/nestdigi/users/login"
+          ><button class="login-btn">Login</button></a
+        >
+      </div>
+      <button class="mobile-menu-btn">☰</button>
     </nav>
-    
+
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <div class="mobile-menu-header">
-            <div class="logo">Digi<span>nest</span></div>
-            <button class="close-menu">×</button>
-        </div>
-        <ul class="mobile-nav-links">
-            <li><a href="#products">Products</a></li>
-            <li><a href="#showcase">Showcase</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="https://payhip.com/nestdigi/users/login"><button class="login-btn" style="width: 100%; margin-top: 1rem;">Login</button></a></li>
-        </ul>
+      <div class="mobile-menu-header">
+        <div class="logo">Digi<span>nest</span></div>
+        <button class="close-menu">×</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#showcase">Showcase</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li>
+          <a href="https://payhip.com/nestdigi/users/login"
+            ><button class="login-btn" style="width: 100%; margin-top: 1rem">
+              Login
+            </button></a
+          >
+        </li>
+      </ul>
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Start Your Digital Business with <span>1 Million+ Premium PLR Products</span></h1>
-        <p class="hero-subtitle">Quality digital products you can customize and sell. Start with proven content and make it your own.</p>
-        <div class="hero-buttons">
-            <a href="#products" class="btn btn-primary">Start Earning</a>
-            <a href="productpage.html" class="btn btn-secondary">View Products</a>
-        </div>
-        <div class="hero-features">
-            <div class="feature-item">Instant Access</div>
-            <div class="feature-item">Full Commercial Rights</div>
-            <div class="feature-item">Ready to ReSell</div>
-        </div>
+      <h1>
+        Start Your Digital Business with
+        <span>1 Million+ Premium PLR Products</span>
+      </h1>
+      <p class="hero-subtitle">
+        Quality digital products you can customize and sell. Start with proven
+        content and make it your own.
+      </p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">Start Earning</a>
+        <a href="productpage.html" class="btn btn-secondary">View Products</a>
+      </div>
+      <div class="hero-features">
+        <div class="feature-item">Instant Access</div>
+        <div class="feature-item">Full Commercial Rights</div>
+        <div class="feature-item">Ready to ReSell</div>
+      </div>
     </section>
 
     <!-- Process Section -->
     <section class="section">
-        <div class="section-header">
-            <h2 class="section-title">Start Your Digital Journey <span style="background: linear-gradient(135deg, #F59E0B, #F59E0B); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">With Confidence</span></h2>
-            <p class="section-subtitle">Our proven 3-step process helps you launch your digital business successfully</p>
+      <div class="section-header">
+        <h2 class="section-title">
+          Start Your Digital Journey
+          <span
+            style="
+              background: linear-gradient(135deg, #f59e0b, #f59e0b);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            "
+            >With Confidence</span
+          >
+        </h2>
+        <p class="section-subtitle">
+          Our proven 3-step process helps you launch your digital business
+          successfully
+        </p>
+      </div>
+      <div class="process-steps">
+        <div class="step-card animate-on-scroll">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="fas fa-download"></i></div>
+          <h3 class="step-title">Access Premium Content</h3>
+          <p class="step-description">
+            Browse our curated library of professional digital products, ready
+            for customization.
+          </p>
         </div>
-        <div class="process-steps">
-            <div class="step-card animate-on-scroll">
-                <div class="step-number">1</div>
-                <div class="step-icon"><i class="fas fa-download"></i></div>
-                <h3 class="step-title">Access Premium Content</h3>
-                <p class="step-description">Browse our curated library of professional digital products, ready for customization.</p>
-            </div>
-            <div class="step-card animate-on-scroll">
-                <div class="step-number">2</div>
-                <div class="step-icon"><i class="fas fa-paint-brush"></i></div>
-                <h3 class="step-title">Brand & Customize</h3>
-                <p class="step-description">Transform products with your unique brand identity using our professional tools.</p>
-            </div>
-            <div class="step-card animate-on-scroll">
-                <div class="step-number">3</div>
-                <div class="step-icon"><i class="fas fa-rocket"></i></div>
-                <h3 class="step-title">Launch Your Business</h3>
-                <p class="step-description">Start selling your branded products across multiple platforms and marketplaces.</p>
-            </div>
+        <div class="step-card animate-on-scroll">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3 class="step-title">Brand & Customize</h3>
+          <p class="step-description">
+            Transform products with your unique brand identity using our
+            professional tools.
+          </p>
         </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="productpage.html" class="btn btn-primary">Begin Your Business Journey ➤</a>
-            <p style="margin-top: 1rem; color: var(--text-light);">Professional tools & support included</p>
+        <div class="step-card animate-on-scroll">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="fas fa-rocket"></i></div>
+          <h3 class="step-title">Launch Your Business</h3>
+          <p class="step-description">
+            Start selling your branded products across multiple platforms and
+            marketplaces.
+          </p>
         </div>
+      </div>
+      <div style="text-align: center; margin-top: 3rem">
+        <a href="productpage.html" class="btn btn-primary"
+          >Begin Your Business Journey ➤</a
+        >
+        <p style="margin-top: 1rem; color: var(--text-light)">
+          Professional tools & support included
+        </p>
+      </div>
     </section>
 
     <!-- Products Section -->
     <section class="section" id="products">
-        <div class="section-header">
-            <h2 class="section-title">Everything You Need to Start <span style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Selling Online</span></h2>
-            <p class="section-subtitle">Choose from <strong style="color: var(--primary);">Over 1 Million</strong> premium digital products with full resell rights</p>
+      <div class="section-header">
+        <h2 class="section-title">
+          Everything You Need to Start
+          <span
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--primary-dark)
+              );
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            "
+            >Selling Online</span
+          >
+        </h2>
+        <p class="section-subtitle">
+          Choose from
+          <strong style="color: var(--primary)">Over 1 Million</strong> premium
+          digital products with full resell rights
+        </p>
+      </div>
+      <div class="products-grid">
+        <!-- Product 1: Viral Reels & Hook Videos Mega Pack -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.00_020f5bd4.jpg"
+              alt="Viral Reels & Hook Videos Mega Pack"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon"><i class="fas fa-video"></i></div>
+              <div>
+                <div class="product-name">
+                  Viral Reels & Hook Videos Mega Pack
+                </div>
+              </div>
+            </div>
+            <p class="product-description">
+              Create viral reels without being on camera with our fully editable
+              templates, scripts, and hooks for Instagram, TikTok & YouTube
+              Shorts.
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> 1,300+ Viral Hooks
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Reels Templates
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Trend Scripts for Marketers
+              </div>
+            </div>
+            <a href="https://payhip.com/b/eUqTZ">
+              <button class="product-action">Buy Now</button></a
+            >
+          </div>
         </div>
-        <div class="products-grid">
-            <!-- Product 1: Viral Reels & Hook Videos Mega Pack -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.00_020f5bd4.jpg" alt="Viral Reels & Hook Videos Mega Pack">
-            
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-video"></i></div>
-                        <div>
-                            <div class="product-name">Viral Reels & Hook Videos Mega Pack</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Create viral reels without being on camera with our fully editable templates, scripts, and hooks for Instagram, TikTok & YouTube Shorts.</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> 1,300+ Viral Hooks</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Reels Templates</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Trend Scripts for Marketers</div>
-                    </div>
-                    <a href="https://payhip.com/b/eUqTZ"> <button class="product-action">Buy Now</button></a>
-                   
-                </div>
+        <!-- Product 1: Viral Reels & Hook Videos Mega Pack -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-04 at 23.32.02_e411131a.jpg"
+              alt="Viral Reels & Hook Videos Mega Pack"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
             </div>
-             <!-- Product 1: Viral Reels & Hook Videos Mega Pack -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-04 at 23.32.02_e411131a.jpg" alt="Viral Reels & Hook Videos Mega Pack">
-            
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-video"></i></div>
-                        <div>
-                            <div class="product-name">Creator Income Starter Kit</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Launch Your Content Business with 3 Ready-to-Use Tools
-
-Perfect for Reels creators, faceless YouTubers, beginner entrepreneurs & content sellers!</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> 1000+ faceless reel templates & projects</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Edit & publish viral videos in minutes</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Monetize your skills or resell the content for profit</div>
-                    </div>
-                    <a href="https://payhip.com/b/ykpdH"> <button class="product-action">Buy Now</button></a>
-                   
-                </div>
+            <div class="product-category">
+              <div class="category-icon"><i class="fas fa-video"></i></div>
+              <div>
+                <div class="product-name">Creator Income Starter Kit</div>
+              </div>
             </div>
-            
-            <!-- Product 2: Ultimate Designer's Bundle -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.01_010365bb.jpg" alt="Ultimate Designer's Bundle">
-                   
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-paint-brush"></i></div>
-                        <div>
-                            <div class="product-name">Ultimate Designer's Bundle</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Everything you need to build or scale a design business with 1000+ premium Adobe templates, mockups, fonts and more with full resell rights.</p>
-                    <div class="product-features">
-                        <br>
-                        <div class="product-feature"><i class="fas fa-check"></i> Photoshop & Illustrator Files</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> 1000+ Design Assets</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Full Commercial Rights</div>
-                        
-
-                    </div>
-                    <a href="https://payhip.com/b/VqDI5"> <button class="product-action">Buy Now</button></a>
-                   
-                </div>
+            <p class="product-description">
+              Launch Your Content Business with 3 Ready-to-Use Tools Perfect for
+              Reels creators, faceless YouTubers, beginner entrepreneurs &
+              content sellers!
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> 1000+ faceless reel templates &
+                projects
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Edit & publish viral videos in
+                minutes
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Monetize your skills or resell the
+                content for profit
+              </div>
             </div>
-
-            <!-- Product 3: 100k+ ChatGPT Prompts Bundle -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-04 at 16.24.45_c902e0b3.jpg" alt="100k+ ChatGPT Prompts Bundle">
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-robot"></i></div>
-                        <div>
-                            <div class="product-name">100k+ ChatGPT Prompts Bundle</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Create better content faster with our massive collection of proven prompts for content creation, marketing, business, and idea generation.</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> Content & Marketing Prompts</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Business & Idea Generation</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Trusted by 10,000+ Professionals</div>
-                    </div>
-                    <a href="https://payhip.com/b/h84Yr"> <button class="product-action">Buy Now</button></a>
-                </div>
-            </div>
-
-            <!-- Product 4: Instagram Master Growth Course -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.00_7679f3fb.jpg" alt="Instagram Master Growth Course">
-                    
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-chart-line"></i></div>
-                        <div>
-                            <div class="product-name">Instagram Master Growth Course</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Master the art of Instagram growth, engagement & monetization - go from 0 to influencer-level strategy with this all-in-one course!</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> Growth Hacks</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Algorithm Secrets</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Targeting Strategies</div>
-                    </div>
-                    <a href="https://payhip.com/b/ikaKH"><button class="product-action">Buy Now</button></a>
-
-                </div>
-            </div>
-
-            <!-- Product 5: Video Editing Mega Bundle -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.02_7baeb50e.jpg" alt="Video Editing Mega Bundle">
-                    
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-film"></i></div>
-                        <div>
-                            <div class="product-name">Video Editing Mega Bundle</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Turn basic clips into viral-quality videos with no experience needed. Includes editable templates, sound FX, transitions, and CapCut ready assets.</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> PLR + MRR Included</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Used by 18,000+ Creators</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Professional Templates</div>
-                    </div>
-                    <br>
-                    <a href="https://payhip.com/b/xy3Pc"> <button class="product-action">Buy Now</button></a>
-                   
-                </div>
-            </div>
-
-            <!-- Product 6: Digital Product Ideas & Assets -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.02_d0cf552d.jpg" alt="Digital Product Ideas & Assets">
-                   
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-lightbulb"></i></div>
-                        <div>
-                            <div class="product-name">Digital Product Ideas & Assets</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Start selling digital products today with 500+ digital product ideas and 100+ editable assets to kickstart your online business.</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> 500+ Hot Niches</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Editable Templates</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Resell Rights Included</div>
-                    </div>
-                    <br>
-                    <a href="https://payhip.com/b/mRuBI"> <button class="product-action">Buy Now</button></a>
-                   
-                </div>
-            </div>
-
-            <!-- Product 7: 10,000+ Canva Templates Bundle -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.01_6f11e94d.jpg" alt="10,000+ Canva Templates Bundle">
-                    
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-palette"></i></div>
-                        <div>
-                            <div class="product-name">10,000+ Canva Templates Bundle</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Save hours on content creation with these done-for-you templates that are editable with one click and ready for social media.</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> Social Media Ready</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Editable in 1 Click</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Business & Marketing Templates</div>
-                    </div>
-                    <a href="https://payhip.com/b/sjHqt"><button class="product-action">Buy Now</button></a>
-                    
-                </div>
-            </div>
-
-            <!-- Product 8: T-Shirt Designs Mega Bundle -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.01_948d0b66.jpg" alt="T-Shirt Designs Mega Bundle">
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-tshirt"></i></div>
-                        <div>
-                            <div class="product-name">T-Shirt Designs Mega Bundle</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Start or scale your t-shirt business instantly with 1000+ trendy, editable designs for print-on-demand, Etsy & merch with full resale rights.</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> Editable Designs</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Print Ready Files</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Commercial Use License</div>
-                    </div>
-                    <a href="https://payhip.com/b/kR8y0"><button class="product-action">Buy Now</button></a>
-                </div>
-            </div>
-
-            <!-- Product 9: CapCut Income Generator System -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.00_8662cbdd.jpg" alt="CapCut Income Generator System">
-                    
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-dollar-sign"></i></div>
-                        <div>
-                            <div class="product-name">CapCut Income Generator System</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Learn how to create viral videos & monetize them with no camera or experience needed. Earn from Reels, Shorts & TikToks with mobile editing.</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> Mobile Editing</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> No Camera Needed</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Monetization Strategies</div>
-                    </div>
-                    <a href="https://payhip.com/b/vU46k"> <button class="product-action">Buy Now</button></a>
-                   
-                </div>
-            </div>
-
-            <!-- Product 10: 1000+ Premium Courses Bundle -->
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="WhatsApp Image 2025-08-03 at 20.19.01_c0bd6708.jpg" alt="1000+ Premium Courses Bundle">
-                   
-                </div>
-                <div class="product-info">
-                    <div class="product-category">
-                        <div class="category-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <div>
-                            <div class="product-name">1000+ Premium Courses Bundle</div>
-                        </div>
-                    </div>
-                    <p class="product-description">Get instant access to 100+ ready-made courses to learn & resell in profitable niches like business, marketing, AI, Canva, freelancing & more.</p>
-                    <div class="product-features">
-                        <div class="product-feature"><i class="fas fa-check"></i> Editable PLR Courses</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Resell & Monetize Rights</div>
-                        <div class="product-feature"><i class="fas fa-check"></i> Hot-Selling Niches</div>
-                    </div>
-                    <a href="https://payhip.com/b/sGqUg"> <button class="product-action">Buy Now</button></a>
-                   
-                </div>
-            </div>
+            <a href="https://payhip.com/b/ykpdH">
+              <button class="product-action">Buy Now</button></a
+            >
+          </div>
         </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="productpage.html" class="btn btn-secondary">View Complete Product List</a>
+
+        <!-- Product 2: Ultimate Designer's Bundle -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.01_010365bb.jpg"
+              alt="Ultimate Designer's Bundle"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <div>
+                <div class="product-name">Ultimate Designer's Bundle</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Everything you need to build or scale a design business with 1000+
+              premium Adobe templates, mockups, fonts and more with full resell
+              rights.
+            </p>
+            <div class="product-features">
+              <br />
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Photoshop & Illustrator Files
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> 1000+ Design Assets
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Full Commercial Rights
+              </div>
+            </div>
+            <a href="https://payhip.com/b/VqDI5">
+              <button class="product-action">Buy Now</button></a
+            >
+          </div>
         </div>
+
+        <!-- Product 3: 100k+ ChatGPT Prompts Bundle -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-04 at 16.24.45_c902e0b3.jpg"
+              alt="100k+ ChatGPT Prompts Bundle"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon"><i class="fas fa-robot"></i></div>
+              <div>
+                <div class="product-name">100k+ ChatGPT Prompts Bundle</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Create better content faster with our massive collection of proven
+              prompts for content creation, marketing, business, and idea
+              generation.
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Content & Marketing Prompts
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Business & Idea Generation
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Trusted by 10,000+ Professionals
+              </div>
+            </div>
+            <a href="https://payhip.com/b/h84Yr">
+              <button class="product-action">Buy Now</button></a
+            >
+          </div>
+        </div>
+
+        <!-- Product 4: Instagram Master Growth Course -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.00_7679f3fb.jpg"
+              alt="Instagram Master Growth Course"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon"><i class="fas fa-chart-line"></i></div>
+              <div>
+                <div class="product-name">Instagram Master Growth Course</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Master the art of Instagram growth, engagement & monetization - go
+              from 0 to influencer-level strategy with this all-in-one course!
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Growth Hacks
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Algorithm Secrets
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Targeting Strategies
+              </div>
+            </div>
+            <a href="https://payhip.com/b/ikaKH"
+              ><button class="product-action">Buy Now</button></a
+            >
+          </div>
+        </div>
+
+        <!-- Product 5: Video Editing Mega Bundle -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.02_7baeb50e.jpg"
+              alt="Video Editing Mega Bundle"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon"><i class="fas fa-film"></i></div>
+              <div>
+                <div class="product-name">Video Editing Mega Bundle</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Turn basic clips into viral-quality videos with no experience
+              needed. Includes editable templates, sound FX, transitions, and
+              CapCut ready assets.
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> PLR + MRR Included
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Used by 18,000+ Creators
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Professional Templates
+              </div>
+            </div>
+            <br />
+            <a href="https://payhip.com/b/xy3Pc">
+              <button class="product-action">Buy Now</button></a
+            >
+          </div>
+        </div>
+
+        <!-- Product 6: Digital Product Ideas & Assets -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.02_d0cf552d.jpg"
+              alt="Digital Product Ideas & Assets"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon"><i class="fas fa-lightbulb"></i></div>
+              <div>
+                <div class="product-name">Digital Product Ideas & Assets</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Start selling digital products today with 500+ digital product
+              ideas and 100+ editable assets to kickstart your online business.
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> 500+ Hot Niches
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Editable Templates
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Resell Rights Included
+              </div>
+            </div>
+            <br />
+            <a href="https://payhip.com/b/mRuBI">
+              <button class="product-action">Buy Now</button></a
+            >
+          </div>
+        </div>
+
+        <!-- Product 7: 10,000+ Canva Templates Bundle -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.01_6f11e94d.jpg"
+              alt="10,000+ Canva Templates Bundle"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon"><i class="fas fa-palette"></i></div>
+              <div>
+                <div class="product-name">10,000+ Canva Templates Bundle</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Save hours on content creation with these done-for-you templates
+              that are editable with one click and ready for social media.
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Social Media Ready
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Editable in 1 Click
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Business & Marketing Templates
+              </div>
+            </div>
+            <a href="https://payhip.com/b/sjHqt"
+              ><button class="product-action">Buy Now</button></a
+            >
+          </div>
+        </div>
+
+        <!-- Product 8: T-Shirt Designs Mega Bundle -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.01_948d0b66.jpg"
+              alt="T-Shirt Designs Mega Bundle"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon"><i class="fas fa-tshirt"></i></div>
+              <div>
+                <div class="product-name">T-Shirt Designs Mega Bundle</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Start or scale your t-shirt business instantly with 1000+ trendy,
+              editable designs for print-on-demand, Etsy & merch with full
+              resale rights.
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Editable Designs
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Print Ready Files
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Commercial Use License
+              </div>
+            </div>
+            <a href="https://payhip.com/b/kR8y0"
+              ><button class="product-action">Buy Now</button></a
+            >
+          </div>
+        </div>
+
+        <!-- Product 9: CapCut Income Generator System -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.00_8662cbdd.jpg"
+              alt="CapCut Income Generator System"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div>
+                <div class="product-name">CapCut Income Generator System</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Learn how to create viral videos & monetize them with no camera or
+              experience needed. Earn from Reels, Shorts & TikToks with mobile
+              editing.
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Mobile Editing
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> No Camera Needed
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Monetization Strategies
+              </div>
+            </div>
+            <a href="https://payhip.com/b/vU46k">
+              <button class="product-action">Buy Now</button></a
+            >
+          </div>
+        </div>
+
+        <!-- Product 10: 1000+ Premium Courses Bundle -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img
+              src="WhatsApp Image 2025-08-03 at 20.19.01_c0bd6708.jpg"
+              alt="1000+ Premium Courses Bundle"
+            />
+          </div>
+          <div class="product-info">
+            <div class="rating-sale-row">
+              <div class="product-rating" data-random-rating>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-value">4.8</span>
+              </div>
+              <span class="flash-sale-inline">Flash Sale 40% OFF</span>
+            </div>
+            <div class="product-category">
+              <div class="category-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div>
+                <div class="product-name">1000+ Premium Courses Bundle</div>
+              </div>
+            </div>
+            <p class="product-description">
+              Get instant access to 100+ ready-made courses to learn & resell in
+              profitable niches like business, marketing, AI, Canva, freelancing
+              & more.
+            </p>
+            <div class="product-features">
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Editable PLR Courses
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Resell & Monetize Rights
+              </div>
+              <div class="product-feature">
+                <i class="fas fa-check"></i> Hot-Selling Niches
+              </div>
+            </div>
+            <a href="https://payhip.com/b/sGqUg">
+              <button class="product-action">Buy Now</button></a
+            >
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 3rem">
+        <a href="productpage.html" class="btn btn-secondary"
+          >View Complete Product List</a
+        >
+      </div>
     </section>
 
     <!-- Product Showcase -->
     <section class="product-showcase" id="showcase">
-        <div class="showcase-content">
-            <div class="showcase-badge">COMMERCIAL RIGHTS INCLUDED</div>
-            <h2 class="showcase-title">Create a Profitable Business Today!</h2>
-            <div class="product-demo">
-                <div style="font-size: 3rem; font-weight: 900; color: white; margin-bottom: 1rem;">1Million+</div>
-                <div style="font-size: 1.5rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem;">Digital Products with Commercial Rights!</div>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <i class="fas fa-chart-bar"></i>
-                        <div class="stat-number" style="color: white;">5,000+</div>
-                        <div class="stat-label">Business Templates</div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-paint-brush"></i>
-                        <div class="stat-number" style="color: white;">8,000+</div>
-                        <div class="stat-label">Design Assets</div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-book"></i>
-                        <div class="stat-number" style="color: white;">3,500+</div>
-                        <div class="stat-label">Ebooks & Courses</div>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-bullhorn"></i>
-                        <div class="stat-number" style="color: white;">2,500+</div>
-                        <div class="stat-label">Marketing Tools</div>
-                    </div>
-                </div>
-                <div style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-top: 2rem;">GET INSTANT ACCESS</div>
+      <div class="showcase-content">
+        <div class="showcase-badge">COMMERCIAL RIGHTS INCLUDED</div>
+        <h2 class="showcase-title">Create a Profitable Business Today!</h2>
+        <div class="product-demo">
+          <div
+            style="
+              font-size: 3rem;
+              font-weight: 900;
+              color: white;
+              margin-bottom: 1rem;
+            "
+          >
+            1Million+
+          </div>
+          <div
+            style="
+              font-size: 1.5rem;
+              color: rgba(255, 255, 255, 0.9);
+              margin-bottom: 2rem;
+            "
+          >
+            Digital Products with Commercial Rights!
+          </div>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <i class="fas fa-chart-bar"></i>
+              <div class="stat-number" style="color: white">5,000+</div>
+              <div class="stat-label">Business Templates</div>
             </div>
+            <div class="stat-item">
+              <i class="fas fa-paint-brush"></i>
+              <div class="stat-number" style="color: white">8,000+</div>
+              <div class="stat-label">Design Assets</div>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-book"></i>
+              <div class="stat-number" style="color: white">3,500+</div>
+              <div class="stat-label">Ebooks & Courses</div>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-bullhorn"></i>
+              <div class="stat-number" style="color: white">2,500+</div>
+              <div class="stat-label">Marketing Tools</div>
+            </div>
+          </div>
+          <div
+            style="
+              color: rgba(255, 255, 255, 0.8);
+              font-size: 0.9rem;
+              margin-top: 2rem;
+            "
+          >
+            GET INSTANT ACCESS
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Problem Section -->
     <section class="problem-section">
-        <div class="problem-alert">⚠️ Your Business maybe at Risk</div>
-        <h2 class="problem-title">Finding Profitable Digital Products is <span class="highlight">Getting Impossible</span></h2>
-        <p class="problem-subtitle">The harsh reality that's crushing dreams of <strong style="color: var(--danger);">93% aspiring digital entrepreneurs</strong></p>
-        
-        <div class="problem-stats">
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-icon"><i class="fas fa-sad-tear"></i></div>
-                <div class="stat-number">89%</div>
-                <div class="stat-label">Dreams Shattered</div>
-                <p class="stat-description">89% of digital entrepreneurs quit in despair, their dreams crushed by mounting losses and zero returns.</p>
-            </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div>
-                <div class="stat-number">$12K</div>
-                <div class="stat-label">Life Savings Lost</div>
-                <p class="stat-description">Average failed entrepreneur loses $12,000+ of their life savings before giving up - many going into debt.</p>
-            </div>
+      <div class="problem-alert">⚠️ Your Business maybe at Risk</div>
+      <h2 class="problem-title">
+        Finding Profitable Digital Products is
+        <span class="highlight">Getting Impossible</span>
+      </h2>
+      <p class="problem-subtitle">
+        The harsh reality that's crushing dreams of
+        <strong style="color: var(--danger)"
+          >93% aspiring digital entrepreneurs</strong
+        >
+      </p>
+
+      <div class="problem-stats">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon"><i class="fas fa-sad-tear"></i></div>
+          <div class="stat-number">89%</div>
+          <div class="stat-label">Dreams Shattered</div>
+          <p class="stat-description">
+            89% of digital entrepreneurs quit in despair, their dreams crushed
+            by mounting losses and zero returns.
+          </p>
         </div>
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div>
+          <div class="stat-number">$12K</div>
+          <div class="stat-label">Life Savings Lost</div>
+          <p class="stat-description">
+            Average failed entrepreneur loses $12,000+ of their life savings
+            before giving up - many going into debt.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Brutal Reality Section -->
     <section class="brutal-section">
-        <div class="brutal-badge">📉 The Brutal Reality</div>
-        <h2 class="brutal-title">Time is Running Out. <span class="highlight">Your Revenue is at Stake...</span></h2>
-        <p class="brutal-subtitle">Every day you delay, more dreams are crushed and opportunities slip away forever</p>
-        
-        <div class="brutal-stats">
-            <div class="brutal-stat animate-on-scroll">
-                <div class="brutal-stat-icon"><i class="fas fa-chart-line"></i></div>
-                <div class="brutal-stat-number">89%</div>
-                <div class="brutal-stat-label">Dreams Shattered</div>
-                <p class="brutal-stat-desc">89% of digital entrepreneurs quit in despair, their dreams crushed by mounting losses and zero returns.</p>
-            </div>
-            <div class="brutal-stat animate-on-scroll">
-                <div class="brutal-stat-icon"><i class="fas fa-ban"></i></div>
-                <div class="brutal-stat-number">$12K</div>
-                <div class="brutal-stat-label">Life Savings Lost</div>
-                <p class="brutal-stat-desc">Average failed entrepreneur loses $12,000+ of their life savings before giving up - many going into debt.</p>
-            </div>
-            <div class="brutal-stat animate-on-scroll">
-                <div class="brutal-stat-icon"><i class="fas fa-clock"></i></div>
-                <div class="brutal-stat-number">2YRS</div>
-                <div class="brutal-stat-label">Years Wasted</div>
-                <p class="brutal-stat-desc">2+ years of life wasted chasing the wrong products while watching others succeed with the right approach.</p>
-            </div>
-            <div class="brutal-stat animate-on-scroll">
-                <div class="brutal-stat-icon"><i class="fas fa-heart-broken"></i></div>
-                <div class="brutal-stat-number">97%</div>
-                <div class="brutal-stat-label">Total Failure</div>
-                <p class="brutal-stat-desc">97% never make a single sale. Their products sit untouched while competitors dominate the market.</p>
-            </div>
+      <div class="brutal-badge">📉 The Brutal Reality</div>
+      <h2 class="brutal-title">
+        Time is Running Out.
+        <span class="highlight">Your Revenue is at Stake...</span>
+      </h2>
+      <p class="brutal-subtitle">
+        Every day you delay, more dreams are crushed and opportunities slip away
+        forever
+      </p>
+
+      <div class="brutal-stats">
+        <div class="brutal-stat animate-on-scroll">
+          <div class="brutal-stat-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="brutal-stat-number">89%</div>
+          <div class="brutal-stat-label">Dreams Shattered</div>
+          <p class="brutal-stat-desc">
+            89% of digital entrepreneurs quit in despair, their dreams crushed
+            by mounting losses and zero returns.
+          </p>
         </div>
+        <div class="brutal-stat animate-on-scroll">
+          <div class="brutal-stat-icon"><i class="fas fa-ban"></i></div>
+          <div class="brutal-stat-number">$12K</div>
+          <div class="brutal-stat-label">Life Savings Lost</div>
+          <p class="brutal-stat-desc">
+            Average failed entrepreneur loses $12,000+ of their life savings
+            before giving up - many going into debt.
+          </p>
+        </div>
+        <div class="brutal-stat animate-on-scroll">
+          <div class="brutal-stat-icon"><i class="fas fa-clock"></i></div>
+          <div class="brutal-stat-number">2YRS</div>
+          <div class="brutal-stat-label">Years Wasted</div>
+          <p class="brutal-stat-desc">
+            2+ years of life wasted chasing the wrong products while watching
+            others succeed with the right approach.
+          </p>
+        </div>
+        <div class="brutal-stat animate-on-scroll">
+          <div class="brutal-stat-icon">
+            <i class="fas fa-heart-broken"></i>
+          </div>
+          <div class="brutal-stat-number">97%</div>
+          <div class="brutal-stat-label">Total Failure</div>
+          <p class="brutal-stat-desc">
+            97% never make a single sale. Their products sit untouched while
+            competitors dominate the market.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Solution Section -->
     <section class="solution-section">
-        <div class="solution-content">
-            <div class="solution-badge">✨ The Game-Changing Solution</div>
-            <h2 class="solution-title">But We Have The Solution For You</h2>
-        </div>
+      <div class="solution-content">
+        <div class="solution-badge">✨ The Game-Changing Solution</div>
+        <h2 class="solution-title">But We Have The Solution For You</h2>
+      </div>
     </section>
- <!-- Comparison Section -->
+    <!-- Comparison Section -->
     <section class="comparison-section">
-        <div class="section-header">
-            <div class="comparison-badge">The Solution You've Been Waiting For</div>
-            <h2 class="section-title">Create a Winning Digital Product <span style="background: linear-gradient(135deg, var(--primary), #F59E0B); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Within 5 Minutes</span></h2>
-            <p class="section-subtitle">Stop struggling with endless development cycles. Get instant access to proven, ready-to-sell products</p>
-        </div>
-        
-        <div class="comparison-grid">
-            <!-- Old Way -->
-            <div class="comparison-column old-way animate-on-scroll">
-                <div class="comparison-header-item">
-                    <div class="comparison-icon"><i class="fas fa-times"></i></div>
-                    <div class="comparison-column-title">The Old Way</div>
-                </div>
-                <ol class="comparison-steps">
-                    <li class="comparison-step">
-                        <div class="step-number-comp">1</div>
-                        <div class="step-content">
-                            <div class="step-title">Market Research</div>
-                            <div class="step-description">Spend weeks analyzing market trends and competition</div>
-                            <div class="step-time">2-3 weeks</div>
-                        </div>
-                    </li>
-                    <li class="comparison-step">
-                        <div class="step-number-comp">2</div>
-                        <div class="step-content">
-                            <div class="step-title">Product Development</div>
-                            <div class="step-description">Create everything from scratch with no guarantee of success</div>
-                            <div class="step-time">3-6 months</div>
-                        </div>
-                    </li>
-                    <li class="comparison-step">
-                        <div class="step-number-comp">3</div>
-                        <div class="step-content">
-                            <div class="step-title">Testing & Refinement</div>
-                            <div class="step-description">Multiple iterations and beta testing phases</div>
-                            <div class="step-time">1-2 months</div>
-                        </div>
-                    </li>
-                    <li class="comparison-step">
-                        <div class="step-number-comp">4</div>
-                        <div class="step-content">
-                            <div class="step-title">Marketing Materials</div>
-                            <div class="step-description">Create sales pages, funnels, and promotional content</div>
-                            <div class="step-time">2-4 weeks</div>
-                        </div>
-                    </li>
-                    <li class="comparison-step">
-                        <div class="step-number-comp">5</div>
-                        <div class="step-content">
-                            <div class="step-title">Launch Preparation</div>
-                            <div class="step-description">Set up payment systems and delivery infrastructure</div>
-                            <div class="step-time">1-2 weeks</div>
-                        </div>
-                    </li>
-                </ol>
-            </div>
+      <div class="section-header">
+        <div class="comparison-badge">The Solution You've Been Waiting For</div>
+        <h2 class="section-title">
+          Create a Winning Digital Product
+          <span
+            style="
+              background: linear-gradient(135deg, var(--primary), #f59e0b);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            "
+            >Within 5 Minutes</span
+          >
+        </h2>
+        <p class="section-subtitle">
+          Stop struggling with endless development cycles. Get instant access to
+          proven, ready-to-sell products
+        </p>
+      </div>
 
-            <!-- Diginest Way -->
-            <div class="comparison-column plr-way animate-on-scroll">
-                <div class="comparison-header-item">
-                    <div class="comparison-icon"><i class="fas fa-check"></i></div>
-                    <div class="comparison-column-title">The Diginest Way</div>
+      <div class="comparison-grid">
+        <!-- Old Way -->
+        <div class="comparison-column old-way animate-on-scroll">
+          <div class="comparison-header-item">
+            <div class="comparison-icon"><i class="fas fa-times"></i></div>
+            <div class="comparison-column-title">The Old Way</div>
+          </div>
+          <ol class="comparison-steps">
+            <li class="comparison-step">
+              <div class="step-number-comp">1</div>
+              <div class="step-content">
+                <div class="step-title">Market Research</div>
+                <div class="step-description">
+                  Spend weeks analyzing market trends and competition
                 </div>
-                <ol class="comparison-steps">
-                    <li class="comparison-step">
-                        <div class="step-number-comp">1</div>
-                        <div class="step-content">
-                            <div class="step-title">Choose Product</div>
-                            <div class="step-description">Browse our curated collection of proven sellers</div>
-                            <div class="step-time">5 mins</div>
-                        </div>
-                    </li>
-                    <li class="comparison-step">
-                        <div class="step-number-comp">2</div>
-                        <div class="step-content">
-                            <div class="step-title">Customize</div>
-                            <div class="step-description">Add your branding and personal touches instantly</div>
-                            <div class="step-time">15 mins</div>
-                        </div>
-                    </li>
-                    <li class="comparison-step">
-                        <div class="step-number-comp">3</div>
-                        <div class="step-content">
-                            <div class="step-title">Preview</div>
-                            <div class="step-description">Instant preview of your customized product</div>
-                            <div class="step-time">2 mins</div>
-                        </div>
-                    </li>
-                    <li class="comparison-step">
-                        <div class="step-number-comp">4</div>
-                        <div class="step-content">
-                            <div class="step-title">Download</div>
-                            <div class="step-description">Get your product with all marketing materials</div>
-                            <div class="step-time">1 min</div>
-                        </div>
-                    </li>
-                    <li class="comparison-step">
-                        <div class="step-number-comp">5</div>
-                        <div class="step-content">
-                            <div class="step-title">Start Selling</div>
-                            <div class="step-description">Upload and start making sales immediately</div>
-                            <div class="step-time">2 mins</div>
-                        </div>
-                    </li>
-                </ol>
-            </div>
+                <div class="step-time">2-3 weeks</div>
+              </div>
+            </li>
+            <li class="comparison-step">
+              <div class="step-number-comp">2</div>
+              <div class="step-content">
+                <div class="step-title">Product Development</div>
+                <div class="step-description">
+                  Create everything from scratch with no guarantee of success
+                </div>
+                <div class="step-time">3-6 months</div>
+              </div>
+            </li>
+            <li class="comparison-step">
+              <div class="step-number-comp">3</div>
+              <div class="step-content">
+                <div class="step-title">Testing & Refinement</div>
+                <div class="step-description">
+                  Multiple iterations and beta testing phases
+                </div>
+                <div class="step-time">1-2 months</div>
+              </div>
+            </li>
+            <li class="comparison-step">
+              <div class="step-number-comp">4</div>
+              <div class="step-content">
+                <div class="step-title">Marketing Materials</div>
+                <div class="step-description">
+                  Create sales pages, funnels, and promotional content
+                </div>
+                <div class="step-time">2-4 weeks</div>
+              </div>
+            </li>
+            <li class="comparison-step">
+              <div class="step-number-comp">5</div>
+              <div class="step-content">
+                <div class="step-title">Launch Preparation</div>
+                <div class="step-description">
+                  Set up payment systems and delivery infrastructure
+                </div>
+                <div class="step-time">1-2 weeks</div>
+              </div>
+            </li>
+          </ol>
         </div>
-        
 
+        <!-- Diginest Way -->
+        <div class="comparison-column plr-way animate-on-scroll">
+          <div class="comparison-header-item">
+            <div class="comparison-icon"><i class="fas fa-check"></i></div>
+            <div class="comparison-column-title">The Diginest Way</div>
+          </div>
+          <ol class="comparison-steps">
+            <li class="comparison-step">
+              <div class="step-number-comp">1</div>
+              <div class="step-content">
+                <div class="step-title">Choose Product</div>
+                <div class="step-description">
+                  Browse our curated collection of proven sellers
+                </div>
+                <div class="step-time">5 mins</div>
+              </div>
+            </li>
+            <li class="comparison-step">
+              <div class="step-number-comp">2</div>
+              <div class="step-content">
+                <div class="step-title">Customize</div>
+                <div class="step-description">
+                  Add your branding and personal touches instantly
+                </div>
+                <div class="step-time">15 mins</div>
+              </div>
+            </li>
+            <li class="comparison-step">
+              <div class="step-number-comp">3</div>
+              <div class="step-content">
+                <div class="step-title">Preview</div>
+                <div class="step-description">
+                  Instant preview of your customized product
+                </div>
+                <div class="step-time">2 mins</div>
+              </div>
+            </li>
+            <li class="comparison-step">
+              <div class="step-number-comp">4</div>
+              <div class="step-content">
+                <div class="step-title">Download</div>
+                <div class="step-description">
+                  Get your product with all marketing materials
+                </div>
+                <div class="step-time">1 min</div>
+              </div>
+            </li>
+            <li class="comparison-step">
+              <div class="step-number-comp">5</div>
+              <div class="step-content">
+                <div class="step-title">Start Selling</div>
+                <div class="step-description">
+                  Upload and start making sales immediately
+                </div>
+                <div class="step-time">2 mins</div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
     </section>
 
     <!-- Final CTA Section -->
     <section class="final-cta">
-        <div class="final-cta-content">
-            <div class="final-cta-badge">🎯 Limited Time Offer</div>
-            <h2 class="final-cta-title">Start Building Your <span style="background: linear-gradient(135deg, #ffffff, #e2e8f0); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital Business</span> Today</h2>
-            
-            <div class="stats-grid">
-                <div class="stat-box animate-on-scroll">
-                    <div class="stat-box-icon"><i class="fas fa-users"></i></div>
-                    <div class="stat-box-number">50K+</div>
-                    <div class="stat-box-label">Active Sellers</div>
-                </div>
-                <div class="stat-box animate-on-scroll">
-                    <div class="stat-box-icon"><i class="fas fa-dollar-sign"></i></div>
-                    <div class="stat-box-number">$5M+</div>
-                    <div class="stat-box-label">Monthly Sales</div>
-                </div>
-                <div class="stat-box animate-on-scroll">
-                    <div class="stat-box-icon"><i class="fas fa-box-open"></i></div>
-                    <div class="stat-box-number">1M+</div>
-                    <div class="stat-box-label">Digital Products</div>
-                </div>
-            </div>
-            
-            <div class="highlight-box">
-                <div class="highlight-title">1Million+</div>
-                <div class="highlight-subtitle">DIGITAL PRODUCTS</div>
-            </div>
+      <div class="final-cta-content">
+        <div class="final-cta-badge">🎯 Limited Time Offer</div>
+        <h2 class="final-cta-title">
+          Start Building Your
+          <span
+            style="
+              background: linear-gradient(135deg, #ffffff, #e2e8f0);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            "
+            >Digital Business</span
+          >
+          Today
+        </h2>
+
+        <div class="stats-grid">
+          <div class="stat-box animate-on-scroll">
+            <div class="stat-box-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-box-number">50K+</div>
+            <div class="stat-box-label">Active Sellers</div>
+          </div>
+          <div class="stat-box animate-on-scroll">
+            <div class="stat-box-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div class="stat-box-number">$5M+</div>
+            <div class="stat-box-label">Monthly Sales</div>
+          </div>
+          <div class="stat-box animate-on-scroll">
+            <div class="stat-box-icon"><i class="fas fa-box-open"></i></div>
+            <div class="stat-box-number">1M+</div>
+            <div class="stat-box-label">Digital Products</div>
+          </div>
         </div>
+
+        <div class="highlight-box">
+          <div class="highlight-title">1Million+</div>
+          <div class="highlight-subtitle">DIGITAL PRODUCTS</div>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials-section" id="testimonials">
-        <div class="section-header">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <p class="section-subtitle">Join thousands of successful entrepreneurs who transformed their business with Diginest</p>
+      <div class="section-header">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">
+          Join thousands of successful entrepreneurs who transformed their
+          business with Diginest
+        </p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">SJ</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Sarah Johnson</div>
+              <div class="testimonial-role">Digital Marketing Agency Owner</div>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i
+            ><i class="fas fa-star"></i><i class="fas fa-star"></i
+            ><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonial-content">
+            Diginest completely transformed my business. I went from struggling
+            to create content for months to launching new products every week.
+            My revenue increased by 300% in just 3 months!
+          </div>
         </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card animate-on-scroll">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">SJ</div>
-                    <div class="testimonial-info">
-                        <div class="testimonial-name">Sarah Johnson</div>
-                        <div class="testimonial-role">Digital Marketing Agency Owner</div>
-                    </div>
-                </div>
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="testimonial-content">
-                Diginest completely transformed my business. I went from struggling to create content for months to launching new products every week. My revenue increased by 300% in just 3 months!
-                </div>
+
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">MR</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Mike Rodriguez</div>
+              <div class="testimonial-role">Online Course Creator</div>
             </div>
-            
-            <div class="testimonial-card animate-on-scroll">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">MR</div>
-                    <div class="testimonial-info">
-                        <div class="testimonial-name">Mike Rodriguez</div>
-                        <div class="testimonial-role">Online Course Creator</div>
-                    </div>
-                </div>
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="testimonial-content">
-                    The quality of products is incredible. I've launched 15 courses using Diginest templates, and each one performs better than anything I created from scratch. This is a game-changer!
-                </div>
-            </div>
-            
-            <div class="testimonial-card animate-on-scroll">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">EL</div>
-                    <div class="testimonial-info">
-                        <div class="testimonial-name">Emily Liu</div>
-                        <div class="testimonial-role">Freelance Designer</div>
-                    </div>
-                </div>
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="testimonial-content">
-                    As a designer, I was skeptical about digital products. But the quality and customization options in Diginest are outstanding. I can now offer my clients premium solutions in minutes instead of days.
-                </div>
-            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i
+            ><i class="fas fa-star"></i><i class="fas fa-star"></i
+            ><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonial-content">
+            The quality of products is incredible. I've launched 15 courses
+            using Diginest templates, and each one performs better than anything
+            I created from scratch. This is a game-changer!
+          </div>
         </div>
+
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">EL</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Emily Liu</div>
+              <div class="testimonial-role">Freelance Designer</div>
+            </div>
+          </div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i
+            ><i class="fas fa-star"></i><i class="fas fa-star"></i
+            ><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonial-content">
+            As a designer, I was skeptical about digital products. But the
+            quality and customization options in Diginest are outstanding. I can
+            now offer my clients premium solutions in minutes instead of days.
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- FAQ Section -->
     <section class="faq-section" id="faq">
-        <div class="section-header">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Everything you need to know about Diginest and our digital products</p>
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Everything you need to know about Diginest and our digital products
+        </p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">
+            What exactly is included and how does it work?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Diginest allows you to legally rebrand, modify, and resell digital
+              products as your own. You get full ownership rights to customize
+              the content, add your branding, and sell it under your business
+              name. It's like having a team of content creators working for you
+              at a fraction of the cost.
+            </div>
+          </div>
         </div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question">
-                    What exactly is included and how does it work?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Diginest allows you to legally rebrand, modify, and resell digital products as your own. You get full ownership rights to customize the content, add your branding, and sell it under your business name. It's like having a team of content creators working for you at a fraction of the cost.
-                    </div>
-                </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I really make money selling these products?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Absolutely! Our members regularly generate significant income by
+              selling digital products. The key is choosing high-quality
+              products (which we provide), customizing them properly, and
+              marketing them effectively. Many of our users have built 6-figure
+              businesses using our products as their foundation.
             </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Can I really make money selling these products?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Absolutely! Our members regularly generate significant income by selling digital products. The key is choosing high-quality products (which we provide), customizing them properly, and marketing them effectively. Many of our users have built 6-figure businesses using our products as their foundation.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    What's included with my Diginest membership?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Your membership includes access to over 1 million digital products across all categories, unlimited downloads, full resell rights, marketing materials, sales pages, professional branding tools, and ongoing support. Plus, we add new products regularly to keep your inventory fresh.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    Do I need technical skills to customize the products?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Not at all! Our products are designed for easy customization. Most can be edited using simple tools like Canva, PowerPoint, or basic text editors. We also provide step-by-step tutorials and templates to make the process as simple as possible, even for complete beginners.
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What's included with my Diginest membership?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Your membership includes access to over 1 million digital products
+              across all categories, unlimited downloads, full resell rights,
+              marketing materials, sales pages, professional branding tools, and
+              ongoing support. Plus, we add new products regularly to keep your
+              inventory fresh.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do I need technical skills to customize the products?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Not at all! Our products are designed for easy customization. Most
+              can be edited using simple tools like Canva, PowerPoint, or basic
+              text editors. We also provide step-by-step tutorials and templates
+              to make the process as simple as possible, even for complete
+              beginners.
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <!-- Footer -->
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-grid">
-      <!-- Logo and description -->
-      <div class="footer-column footer-company">
-        <img class="footer-logo" src="WhatsApp_Image_2025-08-02_at_22.20.27_00f3871f-removebg-preview.png" alt="Diginest Logo">
-        <p>Empowering entrepreneurs worldwide with premium digital products and the tools to build successful online businesses.</p>
-        <div class="social-links">
-          <a href="https://www.facebook.com/share/15vTqk7bnM/?mibextid=wwXIfr" class="social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="http://wa.me/923353643150" class="social-link"><i class="fab fa-w" ></i></a>
-          <a href="https://www.instagram.com/diginesthub12?igsh=MmVkNWExOXN3ejRm&utm_source=qr" class="social-link"><i class="fab fa-instagram"></i></a>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <!-- Logo and description -->
+          <div class="footer-column footer-company">
+            <img
+              class="footer-logo"
+              src="WhatsApp_Image_2025-08-02_at_22.20.27_00f3871f-removebg-preview.png"
+              alt="Diginest Logo"
+            />
+            <p>
+              Empowering entrepreneurs worldwide with premium digital products
+              and the tools to build successful online businesses.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/share/15vTqk7bnM/?mibextid=wwXIfr"
+                class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="http://wa.me/923353643150" class="social-link"
+                ><i class="fab fa-w"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/diginesthub12?igsh=MmVkNWExOXN3ejRm&utm_source=qr"
+                class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Products -->
+          <div class="footer-column">
+            <h3>Products</h3>
+            <ul>
+              <li><a href="#">Canva Templates</a></li>
+              <li><a href="#">Notion Templates</a></li>
+              <li><a href="#">Video Courses</a></li>
+              <li><a href="#">Website Templates</a></li>
+              <li><a href="#">Social Media Packs</a></li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div class="footer-column">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="https://payhip.com/nestdigi/contact">Contact</a></li>
+              <li><a href="#">Affiliate Program</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Getting Started</a></li>
+              <li><a href="#">Video Tutorials</a></li>
+              <li><a href="#">Community Forum</a></li>
+              <li><a href="#">Submit Ticket</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookies</a>
+            <a href="#">Sitemap</a>
+            <a href="#">Accessibility</a>
+          </div>
+          <p>
+            &copy; 2024 Diginest. All rights reserved. | Empowering digital
+            entrepreneurs worldwide.
+          </p>
         </div>
       </div>
-
-      <!-- Products -->
-      <div class="footer-column">
-        <h3>Products</h3>
-        <ul>
-          <li><a href="#">Canva Templates</a></li>
-          <li><a href="#">Notion Templates</a></li>
-          <li><a href="#">Video Courses</a></li>
-          <li><a href="#">Website Templates</a></li>
-          <li><a href="#">Social Media Packs</a></li>
-        </ul>
-      </div>
-
-      <!-- Company -->
-      <div class="footer-column">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Our Story</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="https://payhip.com/nestdigi/contact">Contact</a></li>
-          <li><a href="#">Affiliate Program</a></li>
-        </ul>
-      </div>
-
-      <!-- Support -->
-      <div class="footer-column">
-        <h3>Support</h3>
-        <ul>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">Getting Started</a></li>
-          <li><a href="#">Video Tutorials</a></li>
-          <li><a href="#">Community Forum</a></li>
-          <li><a href="#">Submit Ticket</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom Footer -->
-    <div class="footer-bottom">
-      <div class="footer-bottom-links">
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
-        <a href="#">Cookies</a>
-        <a href="#">Sitemap</a>
-        <a href="#">Accessibility</a>
-      </div>
-      <p>&copy; 2024 Diginest. All rights reserved. | Empowering digital entrepreneurs worldwide.</p>
-    </div>
-  </div>
-</footer>
-
+    </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const closeMenuBtn = document.querySelector('.close-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const closeMenuBtn = document.querySelector(".close-menu");
 
-        // FAQ Toggle Functionality
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('.faq-icon');
-                
-                // Toggle current FAQ
-                question.classList.toggle('active');
-                answer.classList.toggle('active');
-                icon.textContent = question.classList.contains('active') ? '×' : '+';
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+
+      closeMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          !mobileMenu.contains(e.target) &&
+          !mobileMenuBtn.contains(e.target)
+        ) {
+          mobileMenu.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+
+      // FAQ Toggle Functionality
+      const faqQuestions = document.querySelectorAll(".faq-question");
+
+      faqQuestions.forEach((question) => {
+        question.addEventListener("click", () => {
+          const answer = question.nextElementSibling;
+          const icon = question.querySelector(".faq-icon");
+
+          // Toggle current FAQ
+          question.classList.toggle("active");
+          answer.classList.toggle("active");
+          icon.textContent = question.classList.contains("active") ? "×" : "+";
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+
+            // Close mobile menu if open
+            mobileMenu.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      });
+
+      // Animation on scroll
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll(".animate-on-scroll");
+        const windowHeight = window.innerHeight;
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementPosition < windowHeight - elementVisible) {
+            element.classList.add("animated");
+          }
+        });
+      };
+
+      // Initial check and scroll event listener
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+      document.querySelectorAll("[data-random-rating]").forEach((el) => {
+        const rating = (Math.random() * 0.5 + 4.5).toFixed(1); // 4.5 - 5.0
+        const fullStars = Math.round(rating);
+
+        const stars = el.querySelectorAll("i");
+
+        stars.forEach((star, i) => {
+          star.classList.remove("fas", "far");
+          if (i < fullStars) {
+            star.classList.add("fas"); // solid star
+          } else {
+            star.classList.add("far"); // outline star
+          }
+          star.classList.add("fa-star"); // always needed
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Close mobile menu if open
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // Animation on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            const windowHeight = window.innerHeight;
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementPosition < windowHeight - elementVisible) {
-                    element.classList.add('animated');
-                }
-            });
-        };
-
-        // Initial check and scroll event listener
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
+        el.querySelector(".rating-value").textContent = rating;
+      });
     </script>
-</body>
-
+  </body>
 </html>
-
