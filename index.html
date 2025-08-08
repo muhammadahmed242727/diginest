@@ -46,6 +46,7 @@
     <!-- End Meta Pixel Code -->
     <style>
       /* CSS Variables */
+      /* CSS Variables */
       :root {
         /* Color Scheme */
         --primary: #f59e0b;
@@ -372,32 +373,25 @@
         line-height: 1.6;
       }
 
-      /* Products Section */
+      /* Products Section - FIXED ALIGNMENT */
       .products-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
         max-width: var(--container-width);
         margin: 0 auto;
+        align-items: start; /* Key fix for alignment */
       }
 
       .product-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* space between content and button */
         background: white;
         border-radius: var(--border-radius);
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         position: relative;
-      }
-      .product-main {
-        flex-grow: 1;
-      }
-      .product-action {
-        margin-top: auto;
-        /* already styled well, no change needed if the button is inside a flex container */
+        display: flex;
+        flex-direction: column;
       }
 
       .product-card:hover {
@@ -405,120 +399,123 @@
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       }
 
+      /* FIXED IMAGE CONTAINER - Shows full image without cropping */
       .product-image {
-        width: 100%; /* Take full width of parent */
-        max-width: 500px; /* Optional: max limit */
-        height: auto; /* Adjusts with aspect ratio */
-        background: var(--gradient-primary);
+        width: 100%;
         position: relative;
         overflow: hidden;
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto; /* Center on the page */
+        min-height: 390px; /* Minimum height */
       }
 
       .product-image img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
+        width: 110%; /* Maintain aspect ratio */
         display: block;
+        height: 800px;
+        object-fit: fill; /* Shows full image without cropping */
+        max-height: 390px; /* Prevent extremely tall images */
+      }
+
+      .product-count {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-info {
+        padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* FIXED ALIGNMENT - Consistent spacing */
+      .rating-sale-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        min-height: 28px;
       }
 
       .product-rating {
         display: flex;
         align-items: center;
-        gap: 0.3rem;
-        font-size: 1.1rem; /* Bigger stars */
-        margin-bottom: 0.7rem;
-        margin-top: 0.3rem;
-        line-height: 1;
+        gap: 0.2rem;
+        font-size: 1rem;
       }
 
       .product-rating i.fas {
-        color: #ffd700; /* Bright gold full stars */
+        color: #ffd700;
       }
 
       .product-rating i.far {
-        color: #d3d3d3; /* Light gray empty stars */
+        color: #d3d3d3;
       }
 
       .product-rating .rating-value {
-        margin-left: 0.4rem;
+        margin-left: 0.5rem;
         font-weight: bold;
-        color: var(--text); /* Matches your site's normal text color */
+        color: var(--text);
         font-size: 0.95rem;
       }
 
-      .rating-sale-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* push them apart */
-        width: 100%;
-      }
-
-      .rating-sale-row .product-rating {
-        margin: 0; /* remove unwanted space */
-        display: flex;
-        align-items: center;
-        gap: 4px; /* space between stars and rating number */
-      }
-
       .flash-sale-inline {
-        background-color: var(--new);
+        background: var(--new);
         color: white;
         font-size: 0.75rem;
         font-weight: bold;
         padding: 4px 10px;
-        border-radius: 5px;
+        border-radius: 6px;
         white-space: nowrap;
-      }
-      .product-count {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-weight: 600;
-        color: var(--text);
-      }
-
-      .product-info {
-        padding: 1.5rem;
       }
 
       .product-category {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.8rem;
         margin-bottom: 1rem;
       }
 
       .category-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
         font-size: 1.2rem;
-        background: var(--primary);
+        background: var(--gradient-primary);
+        flex-shrink: 0;
       }
 
       .product-name {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         font-weight: 700;
         color: var(--text);
-        margin-bottom: 0.5rem;
-        margin-top: 18px;;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+        min-height: auto; /* Remove fixed height */
       }
 
       .product-description {
         color: var(--text-light);
         line-height: 1.6;
         margin-bottom: 1.5rem;
+        flex-grow: 1;
+        font-size: 0.95rem;
       }
 
       .product-features {
@@ -528,33 +525,106 @@
       .product-feature {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
+        gap: 0.6rem;
+        margin-bottom: 0.6rem;
         font-size: 0.9rem;
         color: var(--text-light);
       }
 
       .product-feature i {
         color: var(--accent);
+        width: 14px;
+        flex-shrink: 0;
       }
 
       .product-action {
         background: var(--gradient-primary);
         color: white;
-        padding: 0.8rem 1.5rem;
+        padding: 0.9rem 1.5rem;
         border: none;
-        border-radius: 10px;
+        border-radius: 12px;
         font-weight: 600;
         cursor: pointer;
         width: 100%;
         transition: all 0.3s ease;
+        font-size: 1rem;
+        margin-top: auto;
       }
 
       .product-action:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
       }
 
+      .btn {
+        padding: 0.9rem 1.8rem;
+        font-weight: 600;
+        border-radius: 12px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .products-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .product-image img {
+          max-height: 350px;
+        }
+        .product-image {
+          min-height: 350px; /* Adjust minimum height for smaller screens */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .product-info {
+          padding: 1.2rem;
+        }
+        .product-image img {
+          max-height: auto;
+        }
+        .product-image {
+          min-height: auto; /* Adjust minimum height for smaller screens */
+        }
+      }
+      @media (min-width:480px) and (max-width: 768px) {
+        .product-image img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
       /* Product Showcase */
       .product-showcase {
         background: var(--gradient-secondary);
@@ -1887,12 +1957,15 @@
             <div class="product-category">
               <div class="category-icon"><i class="fas fa-video"></i></div>
               <div>
-                <div class="product-name">Creator Income Starter Kit</div>
+                <div class="product-name">
+                  Creator Income Starter <br \>
+                  Kit
+                </div>
               </div>
             </div>
             <p class="product-description">
               Launch Your Content Business with 3 Ready-to-Use Tools Perfect for
-              Reels creators, faceless YouTubers, beginner entrepreneurs &
+              Reels creators, faceless YouTubers &
               content sellers!
             </p>
             <div class="product-features">
@@ -1905,8 +1978,7 @@
                 minutes
               </div>
               <div class="product-feature">
-                <i class="fas fa-check"></i> Monetize your skills or resell the
-                content for profit
+                <i class="fas fa-check"></i> Monetize your skills
               </div>
             </div>
             <a href="https://payhip.com/b/ykpdH">
@@ -1940,7 +2012,10 @@
                 <i class="fas fa-paint-brush"></i>
               </div>
               <div>
-                <div class="product-name">Ultimate Designer's Bundle</div>
+                <div class="product-name">
+                  Ultimate Designer's <br />
+                  Bundle
+                </div>
               </div>
             </div>
             <p class="product-description">
@@ -1949,7 +2024,6 @@
               rights.
             </p>
             <div class="product-features">
-              <br />
               <div class="product-feature">
                 <i class="fas fa-check"></i> Photoshop & Illustrator Files
               </div>
@@ -2084,7 +2158,10 @@
             <div class="product-category">
               <div class="category-icon"><i class="fas fa-film"></i></div>
               <div>
-                <div class="product-name">Video Editing Mega Bundle</div>
+                <div class="product-name">
+                  Video Editing Mega <br />
+                  Bundle
+                </div>
               </div>
             </div>
             <p class="product-description">
@@ -2103,7 +2180,6 @@
                 <i class="fas fa-check"></i> Professional Templates
               </div>
             </div>
-            <br />
             <a href="https://payhip.com/b/xy3Pc">
               <button class="product-action">Buy Now</button></a
             >
@@ -2151,7 +2227,6 @@
                 <i class="fas fa-check"></i> Resell Rights Included
               </div>
             </div>
-            <br />
             <a href="https://payhip.com/b/mRuBI">
               <button class="product-action">Buy Now</button></a
             >
